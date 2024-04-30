@@ -1,0 +1,29 @@
+{
+  "name": "scale",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "module-alias": "^2.2.3",
+    "mongoose": "^8.3.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "_moduleAliases": {
+    "@app": "./src/app.js",
+    "@middlewares": "./src/middlewares",
+    "@controllers": "./src/controllers",
+    "@routes": "./src/routes",
+    "@services": "./src/services",
+    "@utils": "./src/utils"
+  }
+}

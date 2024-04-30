@@ -1,0 +1,72 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <h1>ধান ক্রয় হিসাব</h1>
+    <form action="/" method="POST" class="form-container" id="formCustomer">
+      <div class="form-row">
+        <input type="text" id="name" name="name" placeholder="নাম" />
+
+        <input type="text" id="address" name="address" placeholder="ঠিকানা" />
+
+        <input type="tel" id="phone" name="phone" placeholder="মোবাইল" />
+      </div>
+
+      <div class="form-row">
+        <select id="paddyType" name="paddyType">
+          <option value="">ধানের জাত</option>
+          <option value="babu28">বাবু ২৮</option>
+          <option value="rajshahiMinicat">রাজশাহী মিনিকেট</option>
+          <option value="minicat">মিনিকেট</option>
+        </select>
+
+        <input
+          type="number"
+          id="unitPrice"
+          name="unitPrice"
+          placeholder="মন প্রতি দাম"
+          required
+        />
+      </div>
+
+      <div class="form-row">
+        <input
+          type="number"
+          id="weight"
+          name="weight"
+          required
+          placeholder="ওজন (কে.জি)"
+        />
+        <input type="hidden" name="totalWgt" id="totalWgt" />
+        <input type="hidden" name="totalBags" id="totalBags" />
+        <button id="add">+যোগ করুন</button>
+        <input type="submit" value="মুছুন" />
+      </div>
+    </form>
+    <div class="result">
+      <div class="list">
+        <!-- the list of all the items -->
+
+        <table id="data-list">
+          <thead>
+            <tr>
+              <th>বস্তা নং</th>
+              <th>ওজন</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <h2 id="totalWeight">মোট ওজন: 0 মন 0 কেজি</h2>
+      <h2 id="totalPrice">মোট মূল্য: 0 টাকা</h2>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

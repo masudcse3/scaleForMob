@@ -1,0 +1,41 @@
+# @format
+
+version: "3.8"
+services:
+  scale-db:
+    image: mongo:latest
+    container_name: scale-db
+    restart: on-failure
+    ports:
+      - "27027:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      AUTH: admin
+    networks:
+      - scale
+
+  #scale service
+  # scale-service:
+  #   build:
+  #     context: ./src
+  #     dockerfile: ./Dockerfile
+  #   container_name: scale-service
+
+  #   ports:
+  #     - 3500:3500
+  #   restart: on-failure
+  #   depends_on:
+  #     - mongodb
+  #   volumes:
+  #     - ./src:/app
+  #   networks:
+  #     - scale
+
+networks:
+  scale:
+    driver: bridge
+volumes:
+  mongodb_data:
