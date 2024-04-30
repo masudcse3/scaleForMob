@@ -6,6 +6,7 @@ const totalWgt = document.querySelector("#totalWgt");
 const totalBags = document.querySelector("#totalBags");
 const totalPriceText = document.querySelector("#totalPrice");
 const tableBody = document.querySelector("#tbody");
+const clearWeight = document.querySelector("#weight");
 
 const add = document.querySelector("#add");
 add.addEventListener("click", (e) => {
@@ -24,7 +25,7 @@ add.addEventListener("click", (e) => {
   console.log(tableBody);
   totalWgt.value = tWeight * 40;
   totalBags.value = tableBody.rows.length;
-  data.weight = "";
+  clearWeight.value = "";
 });
 
 // clear.addEventListener("click", (e) => {
