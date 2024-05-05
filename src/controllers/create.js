@@ -20,7 +20,7 @@ const createRecord = async (req, res, next) => {
       name: name || "Self",
       address: address || "Self Address",
       phone: phone || "Self Phone",
-      paddy: paddyType || "Self Paddy",
+      paddy: paddyType || "Babu28",
       rate: unitPrice,
       weightInKG: Number(totalWgt),
       weight,

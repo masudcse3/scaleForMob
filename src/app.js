@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
-const { createRecord } = require("./controllers");
+const { createRecord, allPurchases } = require("./controllers");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 app.post("/", createRecord);
 // other routes
-
+app.get("/records", allPurchases);
 // 404 Erorr Handler
 app.use((req, res, next) => {
   const error = new Error("404 Not Found");
