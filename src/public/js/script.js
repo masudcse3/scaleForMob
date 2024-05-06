@@ -13,28 +13,17 @@ add.addEventListener("click", (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
-  const calWeight = calculateTotalWeight(data.weight);
-  const tWeight = calWeight / 40;
+  const tWeight = calculateTotalWeight(data.weight);
   const mon = Math.trunc(tWeight, 0);
-  const kg = ((tWeight - mon) * 40).toFixed(0);
+  const kg = (Number(tWeight - mon) * 40).toFixed(0);
   const totalPrice = (tWeight * Number(data.unitPrice)).toFixed(2);
   totalWeightText.innerText = `মোট ওজন: ${mon} মন ${kg} কেজি`;
   totalPriceText.innerText = `মোট মূল্য: ${totalPrice} টাকা`;
-
   tableBody.appendChild(generateResult(data.weight));
-  console.log(tableBody);
-  totalWgt.value = tWeight * 40;
+  totalWgt.value = (tWeight * 40).toFixed(2);
   totalBags.value = tableBody.rows.length;
   clearWeight.value = "";
 });
-
-// clear.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   form.reset();
-//   tableBody.innerHTML = "";
-//   totalWeightText.innerText = `মোট ওজন: 0 মন 0 কেজি`;
-//   totalPriceText.innerText = `মোট মূল্য: 0 টাকা`;
-// });
 
 const generateResult = (data) => {
   const tr = document.createElement("tr");
@@ -51,8 +40,9 @@ const generateResult = (data) => {
 
 let totalWeight = 0;
 const calculateTotalWeight = (weight) => {
-  totalWeight += Number(weight);
-  return totalWeight;
+  const mon = weight.split(".")[0] || 0;
+  const kg = weight.length > 1 ? weight.split(".")[1] : 0;
+  return (totalWeight += Number(mon) + Number(kg) / 40);
 };
 
 let count = 1;
@@ -60,11 +50,7 @@ const serialNum = () => {
   return count++;
 };
 const convertToMonAndKg = (data) => {
-  data = Number(data);
-  const weight = data / 40;
-  const mon = Math.trunc(weight, 0);
-  const kg = ((weight - mon) * 40).toFixed(0);
+  const mon = data.split(".")[0] || 0;
+  const kg = data.length > 1 ? data.split(".")[1] : 0;
   return `${mon} মন ${kg} কেজি`;
 };
-
-module.exports = { convertToMonAndKg };
