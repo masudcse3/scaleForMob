@@ -28,7 +28,7 @@ const createRecord = async (req, res, next) => {
       totalPrice,
     });
     await purchase.save();
-    res.render("index");
+    res.render("pages/index", { title: "Home" });
   } catch (error) {
     next(error);
   }

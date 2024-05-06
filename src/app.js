@@ -24,11 +24,12 @@ app.get("/health", (req, res) => {
 });
 // home page
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("pages/index", { title: "Home" });
 });
 app.post("/", createRecord);
 // other routes
 app.get("/records", allPurchases);
+app.post("/records", allPurchases);
 // 404 Erorr Handler
 app.use((req, res, next) => {
   const error = new Error("404 Not Found");

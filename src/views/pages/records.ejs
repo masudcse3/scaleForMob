@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu">
+        <ul>
+          <li><a href="/">ধান ক্রয়</a></li>
+          <li><a href="/records">প্রতিদিনের হিসাব</a></li>
+        </ul>
+      </div>
+      <div class="clock">
+        <h4 id="date">4th May 2024</h4>
+        <h4 id="time">12:13:12 AM</h4>
+      </div>
+    </div>
+    <h1>প্রতিদিনের হিসাব</h1>
+  <form action="/records" method="post" id="calander">
+    <input type="date" name="today" id="today">
+    <input type="submit" value="তারিখ নির্বাচন করুন">
+  </form>
+    <table id="data-list">
+      <thead>
+        <tr>
+          <th>নং</th>
+          <th>নাম</th>
+          <!-- <th>ঠিকানা</th>
+          <th>মোবাইল নং</th>
+          <th>ধানের জাত</th> -->
+          <th>দর</th>
+          <th>বস্তা</th>
+          <th>পরিমাণ</th>
+          <th>মূল্য</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <%
+        for(let i = 0; i<allPurchases.length; i++){ %>
+          <tr>
+          <td> <%= allPurchases.indexOf(allPurchases[i])+1 %></td>
+          <td> <%= allPurchases[i].name %></td>
+          <!-- <td> <%= allPurchases[i].address %></td>
+          <td> <%= allPurchases[i].phone %></td>
+          <td> <%= allPurchases[i].paddy %></td> -->
+          <td> <%= allPurchases[i].rate %></td>
+          <td> <%= allPurchases[i].bags %></td>
+          <td> <%= allPurchases[i].weight %></td>
+          <td> <%= allPurchases[i].totalPrice %></td>
+          
+        </tr>
+        <% }
+        %>
+        <tr>
+          <td></td>
+          <td></td>
+          <!-- <td></td>
+          <td></td>
+          <td></td> -->
+          <td></td>
+          <td>মোট বস্তাঃ <%= totalBags %></td>
+          <td>মোট পরিমাণঃ <%= weightString %></td>
+          <td>মোট মূল্যঃ <%= totalPrice %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="space"></div>
+    <h2 style="text-align: center">গড় পড়তাঃ <%= porta %></h2>
+<script src="./js/time.js"></script>
+   
+  </body>
+</html>

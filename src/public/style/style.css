@@ -1,10 +1,43 @@
 /** @format */
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
   background-color: #f4f4f4;
   color: #333;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+.menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  list-style: none;
+}
+.menu li {
+  background: #333;
+  padding: 6px 18px;
+  border-radius: 4px;
+}
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+.clock h4 {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 14px;
 }
 .form-container {
   display: flex;
@@ -42,7 +75,7 @@ select {
   box-sizing: border-box; /* Includes padding in the width */
 }
 input[type="submit"] {
-  background-color: #4caf50;
+  background-color: rgb(26, 26, 26);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -50,7 +83,22 @@ input[type="submit"] {
   transition: background-color 0.3s ease;
 }
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: rgb(6, 5, 5);
+}
+input[type="date"] {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="date"]:focus {
+  border-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 100, 255, 0.25);
+  outline: none;
 }
 
 /* table */
@@ -62,10 +110,12 @@ table {
 }
 h1 {
   text-align: center;
+  font-size: 22px;
   border-bottom: 1px solid #ffffff;
+  margin-bottom: 16px;
 }
 h2 {
-  font-size: 32px;
+  font-size: 20px;
 }
 th,
 td {
@@ -86,4 +136,8 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
   background-color: #e9e9e9; /* Slightly darker gray for even rows */
+}
+.space {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

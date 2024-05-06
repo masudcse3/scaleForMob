@@ -5,10 +5,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
+    <div class="header">
+      <div class="menu">
+        <ul>
+          <li><a href="/">ধান ক্রয়</a></li>
+          <li><a href="/records">প্রতিদিনের হিসাব</a></li>
+        </ul>
+      </div>
+      <div class="clock">
+        <h4 id="date">4th May 2024</h4>
+        <h4 id="time">12:13:12 AM</h4>
+      </div>
+    </div>
+
     <h1>ধান ক্রয় হিসাব</h1>
     <form action="/" method="POST" class="form-container" id="formCustomer">
       <div class="form-row">
@@ -63,9 +76,11 @@
           <tbody id="tbody"></tbody>
         </table>
       </div>
+      <div class="space"></div>
       <h2 id="totalWeight"></h2>
       <h2 id="totalPrice"></h2>
     </div>
     <script src="./js/script.js"></script>
+    <script src="./js/time.js"></script>
   </body>
 </html>
