@@ -141,3 +141,50 @@ tbody tr:nth-child(even) {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.login-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50%;
+}
+
+.login-form h2 {
+  text-align: center;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #282828;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.input-group button:hover {
+  background-color: #4a54f1;
+  transition: background-color 0.3s;
+}

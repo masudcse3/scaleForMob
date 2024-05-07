@@ -3,33 +3,53 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const session = require("express-session");
 const path = require("path");
 require("dotenv").config();
-const { createRecord, allPurchases } = require("./controllers");
+const {
+  createRecord,
+  allPurchases,
+  homepage,
+  login,
+  register,
+} = require("./controllers");
+const auth = require("./middlewares/auth");
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
-  morgan("dev"),
   cors(),
+  morgan("dev"),
   express.json(),
-  express.urlencoded({ extended: true })
+  express.urlencoded({ extended: true }),
+  session({
+    secret: process.env.SESSION_SECRET || "123df90&*",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
 );
 
 // health check
 app.get("/health", (req, res) => {
   res.status(200).json({ message: "Okay!" });
 });
-// home page
-app.get("/", (req, res) => {
-  res.render("pages/index", { title: "Home" });
-});
-app.post("/", createRecord);
+
 // other routes
-app.get("/records", allPurchases);
-app.post("/records", allPurchases);
+app.get("/records", auth, allPurchases);
+app.post("/records", auth, allPurchases);
+
+// home page
+app.get("/", auth, homepage);
+app.post("/", auth, createRecord);
+app.get("/login", (req, res) => {
+  res.render("pages/login");
+});
+app.post("/login", login);
+
+app.post("/register", register);
 // 404 Erorr Handler
 app.use((req, res, next) => {
   const error = new Error("404 Not Found");
