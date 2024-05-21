@@ -51,7 +51,7 @@
           <td> <%= allPurchases[i].rate %></td>
           <td> <%= allPurchases[i].bags %></td>
           <td> <%= allPurchases[i].weight %></td>
-          <td> <%= allPurchases[i].totalPrice %></td>
+          <td> <%= Math.floor(allPurchases[i].totalPrice) %></td>
 
           <td><a href="/records/<%= allPurchases[i]._id %>">Del</a></td>
           
@@ -68,7 +68,7 @@
           
           <td>মোট বস্তাঃ <%= totalBags %></td>
           <td>মোট পরিমাণঃ <%= weightString %></td>
-          <td>মোট মূল্যঃ <%= totalPrice %></td>
+          <td>মোট মূল্যঃ <%= Math.floor(totalPrice) %></td>
           <td></td>
         </tr>
       </tbody>
