@@ -1,6 +1,7 @@
 /** @format */
 
 const { Purchases } = require("../models");
+const del = require("../utils/delete");
 const allPurchases = async (req, res, next) => {
   try {
     const { today } = req.body;
@@ -12,8 +13,9 @@ const allPurchases = async (req, res, next) => {
     date.setHours(0, 0, 0, 0);
     const nextDay = new Date(date);
     nextDay.setDate(date.getDate() + 1);
-    console.log("date", date);
-    console.log("next day", nextDay);
+    console.log("Today", today);
+    console.log("date", date.toDateString());
+    console.log("next day", nextDay.toDateString());
     const allPurchases = await Purchases.find({
       createdAt: {
         $gte: date,
@@ -43,6 +45,7 @@ const allPurchases = async (req, res, next) => {
       weightString,
       totalPrice,
       porta,
+      del,
     });
   } catch (error) {
     next(error);

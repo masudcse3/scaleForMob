@@ -9,6 +9,7 @@ require("dotenv").config();
 const {
   createRecord,
   allPurchases,
+  deleteRecord,
   homepage,
   login,
   register,
@@ -40,6 +41,8 @@ app.get("/health", (req, res) => {
 // other routes
 app.get("/records", auth, allPurchases);
 app.post("/records", auth, allPurchases);
+app.get("/records/:id", auth, deleteRecord);
+app.delete("/records/:id", auth, deleteRecord);
 
 // home page
 app.get("/", auth, homepage);

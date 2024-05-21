@@ -36,6 +36,7 @@
           <th>বস্তা</th>
           <th>পরিমাণ</th>
           <th>মূল্য</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody id="tbody">
@@ -51,6 +52,8 @@
           <td> <%= allPurchases[i].bags %></td>
           <td> <%= allPurchases[i].weight %></td>
           <td> <%= allPurchases[i].totalPrice %></td>
+
+          <td><a href="http://localhost:3500/records/<%= allPurchases[i]._id %>">Del</a></td>
           
         </tr>
         <% }
@@ -62,15 +65,24 @@
           <td></td>
           <td></td> -->
           <td></td>
+          
           <td>মোট বস্তাঃ <%= totalBags %></td>
           <td>মোট পরিমাণঃ <%= weightString %></td>
           <td>মোট মূল্যঃ <%= totalPrice %></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
     <div class="space"></div>
     <h2 style="text-align: center">গড় পড়তাঃ <%= porta %></h2>
 <script src="./js/time.js"></script>
-   
+
+   <script>
+    //  import axios from 'axios'
+     async function del(id) {
+      console.log("id", id);
+      // await  axios.delete(`http://localhost:3500/records/${id}`);
+    }
+   </script>
   </body>
 </html>

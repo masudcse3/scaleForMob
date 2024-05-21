@@ -2,7 +2,10 @@
 
 const mongoose = require("mongoose");
 const dbUrl =
-  process.env.DATABASE_URL || "mongodb://admin:admin@localhost:27027";
+  process.env.NODE_ENV !== "development"
+    ? process.env.DATABASE_URL
+    : "mongodb://localhost:27027";
+console.log(dbUrl);
 const dbConnection = async () => {
   try {
     await mongoose.connect(dbUrl, {
