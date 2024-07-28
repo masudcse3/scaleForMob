@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dbUrl =
   process.env.NODE_ENV !== "development"
     ? process.env.DATABASE_URL
-    : "mongodb://localhost:27027";
+    : "mongodb://localhost:27017";
 console.log(dbUrl);
 const dbConnection = async () => {
   try {
