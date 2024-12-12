@@ -4,23 +4,23 @@ const { Purchases } = require("../models");
 const del = require("../utils/delete");
 const allPurchases = async (req, res, next) => {
   try {
-    const { today } = req.body;
+    const { today, paddyType } = req.body;
     let date = new Date();
     if (today) {
       date = new Date(today);
     }
+    console.log("Paddy Type", paddyType);
 
     date.setHours(0, 0, 0, 0);
     const nextDay = new Date(date);
     nextDay.setDate(date.getDate() + 1);
-    console.log("Today", today);
-    console.log("date", date.toDateString());
-    console.log("next day", nextDay.toDateString());
+
     const allPurchases = await Purchases.find({
       createdAt: {
         $gte: date,
         $lt: nextDay,
       },
+      ...(paddyType && { paddy: paddyType }),
     });
     // console.log("allPurchases", allPurchases);
     const totalBags = allPurchases.reduce((acc, cur) => (acc += cur.bags), 0);

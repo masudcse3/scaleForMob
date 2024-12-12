@@ -2,9 +2,9 @@
 
 version: "3.8"
 services:
-  scale-db:
+  scaleMob-db:
     image: mongo:latest
-    container_name: scale-db
+    container_name: scaleMob-db
     restart: on-failure
     ports:
       - "27027:27017"

@@ -21,8 +21,21 @@
     </div>
     <h1>প্রতিদিনের হিসাব</h1>
   <form action="/records" method="post" id="calander">
-    <input type="date" name="today" id="today">
-    <input type="submit" value="তারিখ নির্বাচন করুন">
+    <input type="date" name="today" id="today"/>
+    <select id="paddyType" name="paddyType">
+          <option value="">ধানের জাত</option>
+          <option value="বাবু ২৮">বাবু ২৮</option>
+          <option value="ধানি গোল্ড">ধানি গোল্ড</option>
+          <option value="৫১">৫১</option>
+          <option value="পতিক">পতিক</option>
+          <option value="৪৯">৪৯</option>
+          <option value="স্বর্ন">স্বর্ন</option>
+          <option value="রড মিনি">রড মিনি</option>
+          <option value="রাজশাহী মিনিকেট">রাজশাহী মিনিকেট</option>
+          <option value="মিনিকেট">মিনিকেট</option>
+          <option value="অন্যান্য">অন্যান্য</option>
+        </select>
+    <input type="submit" value="তারিখ নির্বাচন করুন"/>
   </form>
     <table id="data-list">
       <thead>
@@ -30,10 +43,10 @@
           <th>নং</th>
           <th>নাম</th>
           <!-- <th>ঠিকানা</th>
-          <th>মোবাইল নং</th>
-          <th>ধানের জাত</th> -->
+          <th>মোবাইল নং</th> -->
+          <th>ধানের জাত</th> 
           <th>দর</th>
-          <th>বস্তা</th>
+          <!-- <th>বস্তা</th> -->
           <th>পরিমাণ</th>
           <th>মূল্য</th>
           <th>Actions</th>
@@ -46,10 +59,10 @@
           <td> <%= allPurchases.indexOf(allPurchases[i])+1 %></td>
           <td> <%= allPurchases[i].name %></td>
           <!-- <td> <%= allPurchases[i].address %></td>
-          <td> <%= allPurchases[i].phone %></td>
-          <td> <%= allPurchases[i].paddy %></td> -->
+          <td> <%= allPurchases[i].phone %></td> -->
+          <td> <%= allPurchases[i].paddy %></td> 
           <td> <%= allPurchases[i].rate %></td>
-          <td> <%= allPurchases[i].bags %></td>
+         <!--  <td> <%= allPurchases[i].bags %></td> -->
           <td> <%= allPurchases[i].weight %></td>
           <td> <%= Math.floor(allPurchases[i].totalPrice) %></td>
 
